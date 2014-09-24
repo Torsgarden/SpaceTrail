@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class CrewMember {
-	Random rand = new Random();
+	
 	private int leadership = 50,mechanics = 50,navigation = 50,medicine = 50,combat = 50,scavenging = 50,trade = 50,lore = 50;
 	private int hp = 100, maxhp = 100;
 	private String name = "No-Name";
@@ -27,39 +27,65 @@ public class CrewMember {
 			this.testSkillBounds();
 		}
 	}
-
+	
+	// this method generates a random name based on the different classes
 	private void rollName() {
-		if ( this.getRace() == Race.HUMAN ) {
-			this.setName(NameBank.getHumanName());
-		} else if ( this.getRace() == Race.POLEMIAN ) {
-			this.setName(NameBank.getPolemianName());
-		} else if ( this.getRace() == Race.IMNAR ) {
-			this.setName(NameBank.getImnarName());
-		} else if ( this.getRace() == Race.KRID ) {
-			this.setName(NameBank.getKridName());
-		} //TODO: else if for triggle names
+		Random rand = new Random();
+		// switchs on a random integer between 0 to 3
+		// then sets the names accordingly
+		switch(rand.nextInt(4)) {
+			case 0:
+				this.setName(NameBank.randomizeHumanName());
+				break;
+			case 1:
+				this.setName(NameBank.randomizePolemianName());
+				break;
+			case 2:
+				this.setName(NameBank.randomizeImnarName());
+				break;
+			case 3:
+				this.setName(NameBank.randomizeKridName());
+				break;
+			default:
+				// debugging
+				// how did you get here?
+				System.out.println("you should not EVER get here");
+		}
 	}
-		
+	
+	// this method generates a random race
 	private void rollRace() {
-		int raceVar = rand.nextInt(6);
-		if (raceVar == 0 ) {
-			this.setRace(Race.HUMAN);
-		} else if (raceVar == 1) {
-			this.setRace(Race.POLEMIAN);
-		} else if (raceVar == 2) {
-			this.setRace(Race.IMNAR);
-		} else if (raceVar == 3) {
-			this.setRace(Race.KRID);
-		} else if (raceVar == 4) {
-			this.setRace(Race.TRIGGLE);
-		} else if (raceVar == 5) {
-			this.setRace(Race.CHEZZERIN);
-		} else {
-			this.setRace(Race.HUMAN);
+		Random rand = new Random();
+		// switchs on a random integer between 0 to 5
+		// then sets the names accordingly
+		switch(rand.nextInt(6)) {
+			case 0:
+				this.setRace(Race.HUMAN);
+				break;
+			case 1:
+				this.setRace(Race.POLEMIAN);
+				break;
+			case 2:
+				this.setRace(Race.IMNAR);
+				break;
+			case 3:
+				this.setRace(Race.KRID);
+				break;
+			case 4:
+				this.setRace(Race.TRIGGLE);
+				break;
+			case 5:
+				this.setRace(Race.CHEZZERIN);
+				break;
+			default:
+				// debugging
+				// how did you get here?
+				System.out.println("you should not EVER get here");
 		}
 	}
 	
 	private void rollStats() {
+		Random rand = new Random();
 		//the good code giveth
 		int mod;
 		mod = rand.nextInt(20);

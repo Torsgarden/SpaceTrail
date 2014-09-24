@@ -1,7 +1,6 @@
 import java.util.Random;
 
 public class NameBank {
-	static Random rand = new Random();
 	
 	static String[] HumanNames = {
 		"Catia",
@@ -130,37 +129,37 @@ public class NameBank {
 		//TODO: OTHER SHIP NAMES
 	};
 	
-	public static String getShipName() {
-		int i;
-		i = rand.nextInt(ShipNames.length);
-		return ShipNames[i];
+	// this method generates a random ship name
+	public static String randomizeShipName() {
+		Random rand = new Random();
+		return ShipNames[rand.nextInt(ShipNames.length)];
 	}
 	
-	public static String getHumanName() {
-		int i = rand.nextInt(HumanNames.length);
-		return HumanNames[i];
+	// this method generates a random human's name
+	public static String randomizeHumanName() {
+		Random rand = new Random();
+		return HumanNames[rand.nextInt(HumanNames.length)];
 	}
 	
-	public static String getPolemianName() {
-		int i = rand.nextInt(PolemianNames.length);
-		return PolemianNames[i];
+	// this method generates a random Polemian name
+	public static String randomizePolemianName() {
+		Random rand = new Random();
+		return PolemianNames[rand.nextInt(PolemianNames.length)];
 	}
 	
-	public static String getImnarName() {
-		int i = rand.nextInt(ImnarNames.length);
-		return ImnarNames[i];
+	// this method generates a random Imnar name 
+	public static String randomizeImnarName() {
+		Random rand = new Random();
+		return ImnarNames[rand.nextInt(ImnarNames.length)];
 	}
 	
-	public static String getKridName() {
-		int i = rand.nextInt(2);
-		if (i == 1) {
-			int j = rand.nextInt(HumanNames.length);
-			return HumanNames[j];
-		} else {
-			int j = rand.nextInt(PolemianNames.length);
-			return PolemianNames[j];
-		}
-			
+	// this method generates a random krid name
+	public static String randomizeKridName() {
+		Random rand = new Random();
+		// generates a random boolean value
+		// then based on that, it will choose between the
+		// human names or Polemian names
+		return rand.nextBoolean() ? HumanNames[rand.nextInt(HumanNames.length)] : PolemianNames[rand.nextInt(PolemianNames.length)];
 	}
 
 

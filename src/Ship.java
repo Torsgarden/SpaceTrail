@@ -7,7 +7,7 @@ public class Ship {
 	}
 	
 	private void rollName() {
-		this.setName( NameBank.getShipName() );
+		this.setName( NameBank.randomizeShipName() );
 	}
 	
 	public String getName() {
