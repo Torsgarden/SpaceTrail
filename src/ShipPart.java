@@ -1,29 +1,57 @@
-public class ShipPart {
-	private int mass;
-	private int powerUse;
-	private Boolean peripheral;
+import java.util.Random;
+
+public abstract class ShipPart {
+	private int mass, powerUse, volume, price;
 	
-	private enum Type {
-		ENGINE, HULL, CARGOBAY, NAVS, 
-	}
-	private Type type;
+public static Object randomizePart() {
+	Random rand = new Random();
+	Object newPart = new Object();
 	
-	public Type getType() {
-		return type;
+	//TODO: finish randomizePart method once part subclasses have been made
+	switch(rand.nextInt(3)) {
+		case 1:
+			//return engines
+			break;
+		case 2:
+			//return thrusters
+			break;
+		default:
+			//you should never reach this code
+			break;
 	}
-	public void setType(String newType) {
-		if (newType.equalsIgnoreCase("Engine") || (newType.equalsIgnoreCase("Engines")) ) {
-			this.type = Type.ENGINE;
-		} else if (newType.equalsIgnoreCase("Hull")) {
-			this.type = Type.HULL;
-		} else if (newType.equalsIgnoreCase("Cargobay")) {
-			this.type = Type.CARGOBAY;
-		} else if (newType.equalsIgnoreCase("Navs")) {
-			this.type = Type.NAVS;
-		}
-		else {
-			this.type = Type.ENGINE;
-		}
+	return newPart;
+	}
+	
+	public int getMass() {
+		return mass;
+	}
+	
+	public void setMass(int newMass) {
+		this.mass = newMass;
+	}
+	
+	public int getPowerUse() {
+		return powerUse;
+	}
+	
+	public void setPowerUse(int newPowerUse) {
+		this.powerUse = newPowerUse;
+	}
+	
+	public int getVolume() {
+		return volume;
+	}
+	
+	public void setVolume(int newVolume) {
+		this.volume = newVolume;
+	}
+	
+	public int getPrice() {
+		return price;
+	}
+	
+	public void setPrice(int newPrice) {
+		this.price = newPrice;
 	}
 	
 }
