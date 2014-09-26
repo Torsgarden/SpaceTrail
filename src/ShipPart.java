@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public abstract class ShipPart {
-	private int mass, powerUse, volume, price;
+	private int mass, powerUse, volume, price = 100;
 	
 public static Object randomizePart() {
 	Random rand = new Random();
