@@ -1,13 +1,21 @@
 import graphics.DisplayGraphics;
 import graphics.Screen;
+import graphics.TextWindow;
 
 public class Main {
 	public static void main(String[] args) {
+		TextWindow.displayWindow();
 		//DisplayGraphics.titleScreen();
 		//DisplayGraphics.printSpace();
 		Screen myScreen = new Screen();
-		myScreen.setElementAt(0, 0, '*');
-		//myScreen.setAllElements('*');
+		myScreen.setAllElements("*");
+		//for(int i = 0; i < 20; i++) {
+		//	myScreen.setElementAt(i, i*2, "*");
+		//}
+		//myScreen.setElementAt(0, 0, "*");
+		//myScreen.setElementAt(0, 0, "*");
+		//myScreen.setElementAt(0, 0, "*");
+		
 		/*
 		CrewMember testMember = new CrewMember();
 		Ship testShip = new Ship();

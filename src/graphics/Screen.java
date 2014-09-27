@@ -5,11 +5,11 @@ public class Screen {
 	// this a non JAVA thing, it is for MY convenience
 	// these variables are "global varibles" for the class
 	private int i, j, k;
-	private static int row = 20, column = 100;
+	private static int row = 21, column = 32;
 	
 	// the screen array used for holding
 	// char's of data (text graphics)
-	private static char[][] theScreen = new char[row][column];
+	private static String[][] theScreen = new String[row][column];
 
 	// screen constructor
 	// this constuctor is used for creating the
@@ -19,7 +19,7 @@ public class Screen {
 	public Screen() {
 		for(i = 0; i < row; i++) {
 			for(j = 0; j < column; j++) {
-				theScreen[i][j] = ' ';
+				theScreen[i][j] = " ";
 			}
 		}
 		printScreen();
@@ -28,12 +28,18 @@ public class Screen {
 	public void printScreen() {
 		for(i = 0; i < row; i++) {
 			for(j = 0; j < column; j++) {
-				for(k = 0; k <= j; k++) {
-					System.out.print(" ");
-				}
-				System.out.print(theScreen[i][j]);
+				TextWindow.charBoxes[i][j].insert(theScreen[i][j], 0);
+				//TextWindow.t.setCaretPosition(j);
+				//TextWindow.charBoxes[i][j].insert(theScreen[i][j], 0);
+				//TextWindow.t.setText(theScreen[i][j]);
+				//for(k = 0; k <= j; k++) {
+				
+					//System.out.print(" ");
+				//}
+				//System.out.print(theScreen[i][j]);
 			}
-			System.out.print("\n");
+			//TextWindow.t.insert("\n", j);
+			//System.out.print("\n");
 		}
 	}
 	
@@ -45,23 +51,23 @@ public class Screen {
 	public void clearScreen() {
 		for(i = 0; i < row; i++) {
 			for(j = 0; j < column; j++) {
-				theScreen[i][j] = ' ';
+				theScreen[i][j] = " ";
 			}
 		}
 		printScreen();
 	}
 	
 	// this method sets an idividual character to the screen
-	public void setElementAt(int c, int r, char ch) {
+	public void setElementAt(int c, int r, String ch) {
 		theScreen[c][r] = ch;
 		printScreen();
 	}
 	
-	public char getElementAt(int c, int r) {
+	public String getElementAt(int c, int r) {
 		return theScreen[c][r];
 	}
 	
-	public void setAllElements(char ch) {
+	public void setAllElements(String ch) {
 		for(i = 0; i < row; i++) {
 			for(j = 0; j < column; j++) {
 				theScreen[i][j] = ch;
