@@ -4,24 +4,19 @@ import graphics.TextWindow;
 
 public class Main {
 	public static void main(String[] args) {
+		// this line MUST be first or else everything else will fail
 		TextWindow.displayWindow();
-		//DisplayGraphics.titleScreen();
-		//DisplayGraphics.printSpace();
+		// create a screen so that you can insert characters into the array
+		// that is then printed into the TextWindow
 		Screen myScreen = new Screen();
-		myScreen.setAllElements("*");
-		//for(int i = 0; i < 20; i++) {
-		//	myScreen.setElementAt(i, i*2, "*");
-		//}
-		//myScreen.setElementAt(0, 0, "*");
-		//myScreen.setElementAt(0, 0, "*");
-		//myScreen.setElementAt(0, 0, "*");
 		
-		/*
-		CrewMember testMember = new CrewMember();
-		Ship testShip = new Ship();
-		System.out.println(testShip.getName());
-		//System.out.println(testMember.showInfo() + "\nHire Cost: " + testMember.getHireCost());
-		//TODO: Cheese moons, space cows(?), space bison, space pirates, firefly references, enemy finches;
-		*/
+		while(true) {
+			myScreen.setAllElements("*");
+			for(int i = 0; i < 20; i++) {
+				for(int j = 0; j < 10; j++) {
+					myScreen.setElementAt(j*2, i*2, "0");
+				}
+			}
+		}
 	}
 }

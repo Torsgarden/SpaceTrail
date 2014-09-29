@@ -4,11 +4,12 @@ public class Screen {
 	
 	// this a non JAVA thing, it is for MY convenience
 	// these variables are "global varibles" for the class
-	private int i, j, k;
-	private static int row = 21, column = 32;
+	private int i, j;
+	private static int row = 20, column = 40;
 	
 	// the screen array used for holding
 	// char's of data (text graphics)
+	// and is only made to take 1 character, even though it is a string
 	private static String[][] theScreen = new String[row][column];
 
 	// screen constructor
@@ -25,26 +26,13 @@ public class Screen {
 		printScreen();
 	}
 	
+	// prints the whole array to the screen
 	public void printScreen() {
 		for(i = 0; i < row; i++) {
 			for(j = 0; j < column; j++) {
-				TextWindow.charBoxes[i][j].insert(theScreen[i][j], 0);
-				//TextWindow.t.setCaretPosition(j);
-				//TextWindow.charBoxes[i][j].insert(theScreen[i][j], 0);
-				//TextWindow.t.setText(theScreen[i][j]);
-				//for(k = 0; k <= j; k++) {
-				
-					//System.out.print(" ");
-				//}
-				//System.out.print(theScreen[i][j]);
+				TextWindow.charBoxes[i][j].setText(theScreen[i][j]);
 			}
-			//TextWindow.t.insert("\n", j);
-			//System.out.print("\n");
 		}
-	}
-	
-	public void printAtElement(int c, int r) {
-		System.out.print(theScreen[c][r]);
 	}
 	
 	// this method clears the array or the "screen"
@@ -57,16 +45,18 @@ public class Screen {
 		printScreen();
 	}
 	
-	// this method sets an idividual character to the screen
+	// sets an idividual character to the screen
 	public void setElementAt(int c, int r, String ch) {
 		theScreen[c][r] = ch;
-		printScreen();
+		TextWindow.charBoxes[c][r].setText(theScreen[c][r]);
 	}
 	
+	// gets the elements at a location in the array
 	public String getElementAt(int c, int r) {
 		return theScreen[c][r];
 	}
 	
+	// sets all the elements on the screen into one character
 	public void setAllElements(String ch) {
 		for(i = 0; i < row; i++) {
 			for(j = 0; j < column; j++) {
@@ -76,7 +66,4 @@ public class Screen {
 		printScreen();
 	}
 
-	
-	
-	
 }
