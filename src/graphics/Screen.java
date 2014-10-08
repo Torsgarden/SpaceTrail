@@ -30,7 +30,13 @@ public class Screen {
 	public void printScreen() {
 		for(i = 0; i < row; i++) {
 			for(j = 0; j < column; j++) {
-				TextWindow.charBoxes[i][j].setText(theScreen[i][j]);
+				try {
+					Thread.sleep(1);
+					TextWindow.charBoxes[i][j].setText(theScreen[i][j]);
+				}
+				catch(Exception e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
@@ -43,6 +49,12 @@ public class Screen {
 			}
 		}
 		printScreen();
+	}
+	
+	// clears the character at a given location
+	public void clearAtElement(int c, int r) {
+		theScreen[c][r] = " ";
+		TextWindow.charBoxes[c][r].setText(theScreen[c][r]);
 	}
 	
 	// sets an idividual character to the screen

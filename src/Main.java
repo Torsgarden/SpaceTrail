@@ -12,11 +12,8 @@ public class Main {
 		
 		while(true) {
 			myScreen.setAllElements("*");
-			for(int i = 0; i < 20; i++) {
-				for(int j = 0; j < 10; j++) {
-					myScreen.setElementAt(j*2, i*2, "0");
-				}
-			}
+			myScreen.setAllElements(" ");
 		}
+		
 	}
 }
