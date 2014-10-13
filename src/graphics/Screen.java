@@ -77,5 +77,35 @@ public class Screen {
 		}
 		printScreen();
 	}
+	
+	// this method draws a line of characters
+	// line is the line number
+	// x is the first point
+	// y is the second point
+	public void setRowOfElements(int line, int x, int y, String ch) {
+		for(i = x; i < y; i++) {
+			setElementAt(i, line, ch);
+		}
+	}
+	
+	// this method draws a line of characters
+	// line is the line number
+	// x is the first point
+	// y is the second point
+	public void setColumnOfElements(int line, int x, int y, String ch) {
+		for(i = x; i < y; i++) {
+			setElementAt(line, i, ch);
+		}
+	}
+	
+	// this method makes a square from the coordinates given
+	// x1, y1 are the first point from which will be drawn from
+	// x2, y2 are the second point from which will be drawn from
+	public void makeSquare(int x1, int y1, int x2, int y2, String ch) {
+		setRowOfElements(x1, y1, y2, ch);
+		setRowOfElements(x2, y1, y2, ch);
+		setColumnOfElements(y1, x1, x2 + 1, ch);
+		setColumnOfElements(y2, x1, x2 + 1, ch);
+	}
 
 }
