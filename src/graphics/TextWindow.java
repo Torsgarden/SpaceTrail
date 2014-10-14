@@ -1,6 +1,9 @@
 package graphics;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -35,9 +38,12 @@ public class TextWindow {
 			}
 		}
 		
+		// set various properties on the window
 		p.setBackground(Color.white);
 		f.add(p);
 		f.setResizable(false);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		f.setLocation((dim.width-660)/2, (dim.height-460)/2);
 		f.setSize(660,460);
 		f.setVisible(true);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
