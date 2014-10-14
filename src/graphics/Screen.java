@@ -107,5 +107,15 @@ public class Screen {
 		setRowOfElements(y1, x1, x2 + 1, ch);
 		setRowOfElements(y2, x1, x2 + 1, ch);
 	}
-
+	
+	// this method makes a filed square from the coordinates given
+	// x1, y1 are the first point from which will be drawn from
+	// x2, y2 are the second point from which will be drawn from
+	public void makeFiledSquare(int x1, int y1, int x2, int y2, String ch) {
+		for(int line = y1; line <= y2; line++) {
+			setRowOfElements(line, x1, x2, ch);
+		}
+	}
+	
+	
 }
