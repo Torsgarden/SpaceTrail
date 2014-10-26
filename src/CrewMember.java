@@ -11,21 +11,27 @@ public class CrewMember {
 	private Race race = Race.HUMAN;
 	
 	public CrewMember() {
+		this.initRandom();
+	}
+	
+	public CrewMember(int con) {
+		/*
+		 * alternate constructor
+		 * if con is anything but 1, use default values
+		 * mostly for test purposes
+		 */
+		if ( con == 1 ) {
+			this.initRandom();
+		}
+	}
+	
+	//this method generates random values (for use in constructors)
+	public void initRandom() {
 		this.rollRace();
 		this.rollName();
 		this.rollStats();
 		this.applyRaceMods();
 		this.testSkillBounds();
-	}
-	
-	public CrewMember(int con) {
-		if ( con == 1 ) {
-			this.rollRace();
-			this.rollName();
-			this.rollStats();
-			this.applyRaceMods();
-			this.testSkillBounds();
-		}
 	}
 	
 	// this method generates a random name based on the different classes

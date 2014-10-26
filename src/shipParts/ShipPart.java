@@ -1,16 +1,19 @@
+package shipParts;
 import java.util.Random;
 
 public abstract class ShipPart {
 	private int mass, powerUse, volume, price = 100;
-	
+
+	/*	
 public static Object randomizePart() {
 	Random rand = new Random();
-	Object newPart = new Object();
+	//Object newPart = new Object();
 	
-	//TODO: finish randomizePart method once part subclasses have been made
+	//TODO: finish randomizePart method
 	switch(rand.nextInt(3)) {
 		case 1:
 			//return engines
+			return new Engine();
 			break;
 		case 2:
 			//return thrusters
@@ -21,7 +24,7 @@ public static Object randomizePart() {
 	}
 	return newPart;
 	}
-	
+*/
 	public int getMass() {
 		return mass;
 	}

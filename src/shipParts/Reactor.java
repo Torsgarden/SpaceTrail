@@ -1,14 +1,15 @@
+package shipParts;
 import java.util.Random;
 
-public class Engine extends ShipPart {
-	//engines will have a relatively low mass, high cost and little/no power usage.
-	//the function of engines is to produce power
+public class Reactor extends ShipPart {
+	//reactors will have a relatively low mass, high cost and little/no power usage.
+	//the function of reactors is to produce power
 	private int powerOutput;
 	//these values are parameters only; they shouldn't have getters or setters
 	private int pOutMin = 100, pOutMax = 1000;
 	private int massMin = 10, massMax = 100;
 	
-	public Engine() {
+	public Reactor() {
 		this.rollStats();
 	}
 	
@@ -29,7 +30,7 @@ public class Engine extends ShipPart {
 		return powerOutput;
 	}
 
-	public void setPowerOutput(int powerOutput) {
-		this.powerOutput = powerOutput;
+	public void setPowerOutput(int newPowerOutput) {
+		this.powerOutput = newPowerOutput;
 	}
 }
