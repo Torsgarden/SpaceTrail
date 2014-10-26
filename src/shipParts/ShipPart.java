@@ -2,7 +2,7 @@ package shipParts;
 import java.util.Random;
 
 public abstract class ShipPart {
-	private int mass, powerUse, volume, price = 100;
+	private int mass, powerUse = 5, volume, price = 100;
 
 	/*	
 public static Object randomizePart() {

@@ -4,7 +4,7 @@ import java.util.Random;
 public class Reactor extends ShipPart {
 	//reactors will have a relatively low mass, high cost and little/no power usage.
 	//the function of reactors is to produce power
-	private int powerOutput;
+	private int powerOutput = 100;
 	//these values are parameters only; they shouldn't have getters or setters
 	private int pOutMin = 100, pOutMax = 1000;
 	private int massMin = 10, massMax = 100;

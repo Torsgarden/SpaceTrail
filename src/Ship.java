@@ -3,28 +3,30 @@ import shipParts.*;
 //import weapon.*;
 
 public class Ship {
-	private int health = 1, powerOut = 0, powerUse = 0, mass = 0, thrust = 0;
-	
+	private int health = 1, powerOut = 0, powerUse = 0, mass = 0, thrust = 0, price = 0;
+	//PartsList functions as an array of parts in use
+	PartsList pL = new PartsList();
 	//array lists for active parts and crew
-	ArrayList<ShipPart> partsList = new ArrayList<ShipPart>();
-	//ArrayList<Weapon> weaponsList = new ArrayList<Weapon>();
-	//removed because weapon is being rewritten
 	ArrayList<CrewMember> activeCrew = new ArrayList<CrewMember>();
 	
 	//TODO: placeholder refs for captain, nav, etc.
 	
 	public Ship() {
-		//stuff will go here
+		this.calcSpecs();
 	}
 	
-	public Ship(String con) {
-		if(con.equalsIgnoreCase("test")) {
-			partsList.add(new Reactor());
-			partsList.add(new Hull());
-			partsList.add(new CargoBay());
-			partsList.add(new Shield());
-		}
+	public void calcSpecs() {
+		this.mass = pL.calcMass();
+		this.powerUse = pL.calcPowerUse();
+		this.powerOut = pL.calcPowerOutput();
 	}
+	
+	public String getSpecsString() {
+		String output = ("Mass: " + mass + "\nPower Usage: " + powerUse + "\nPower Generation: " + powerOut);
+		//TODO: change specs string as more ship parts are added
+		return output;
+	}
+	
 	
 	public int getHealth() {
 		return health;
@@ -59,6 +61,13 @@ public class Ship {
 	}
 	public void setThrust(int thrust) {
 		this.thrust = thrust;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 }
