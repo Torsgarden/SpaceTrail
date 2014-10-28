@@ -8,15 +8,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-public class TextWindow {
+public class TextWindow implements ScreenInterface {
 	
 	// the text for the window
 	public static JFrame f = new JFrame("Space Trail");
 	// a panel for inserting text areas into
 	public static JPanel p = new JPanel();
-	// a non JAVA thing, more for convinience
+	// variables used in for loops
 	private static int i, j;
-	private static int row = 20, column = 40;
 	// creates character boxes which are then used
 	// in the Screen class for printing
 	public static JTextArea[][] charBoxes = new JTextArea[row][column];
