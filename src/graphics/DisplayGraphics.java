@@ -48,6 +48,10 @@ public class DisplayGraphics implements ScreenInterface{
 		
 	}
 	
+	// this method prints a line moving from the top
+	// of the screen to the bottom of the screen
+	// screen is the screen printed too
+	// ch is the character printed
 	public static void printMovingLine(Screen screen, String ch) {
 		while(true) {
 		for(int i = 0; i <= 19; i++) {
