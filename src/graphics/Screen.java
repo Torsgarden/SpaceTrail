@@ -1,11 +1,9 @@
 package graphics;
 
-public class Screen {
+public class Screen implements ScreenInterface {
 	
-	// this a non JAVA thing, it is for MY convenience
-	// these variables are "global varibles" for the class
+	// variables used in for loops
 	private int i, j;
-	private static int row = 20, column = 40;
 	
 	// the screen array used for holding
 	// char's of data (text graphics)
@@ -117,5 +115,12 @@ public class Screen {
 		}
 	}
 	
+	/*
+	public void makeDiagonalLine(int x1, int y1, int x2, int y2, String ch) {
+		for(int line = y1; line <= y2; line++) {
+			setElementAt(line2, line, ch);
+		}
+	}
+	*/
 	
 }
