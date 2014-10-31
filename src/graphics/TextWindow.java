@@ -31,14 +31,15 @@ public class TextWindow implements ScreenInterface {
 		// inizilises the default value for all of the text boxes
 		for(i = 0; i < row; i++) {
 			for(j = 0; j < column; j++) {
-				charBoxes[i][j].setBackground(Color.white);
+				charBoxes[i][j].setBackground(Color.black);
 				charBoxes[i][j].setEditable(false);
+				charBoxes[i][j].setCaretColor(Color.white);
 				p.add(charBoxes[i][j], 0, -1);
 			}
 		}
 		
 		// set various properties on the window
-		p.setBackground(Color.white);
+		p.setBackground(Color.black);
 		f.add(p);
 		f.setResizable(false);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
