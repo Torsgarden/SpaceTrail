@@ -22,14 +22,14 @@ public class PartsList {
 		cbList[0] = new CargoBay();
 		hullList[0] = new Hull();
 		reactorList[0] = new Reactor();
-		shieldList[0] = new Shield();
+		//shieldList[0] = new Shield();
 		cqList[0] = new CrewQuarters();
 		thrusterList[0] = new Thruster();
 		thrusterList[1] = new Thruster();
 		cargoBayIndex = 1;
 		hullIndex = 1;
 		reactorIndex = 1;
-		shieldIndex = 1;
+		//shieldIndex = 1;
 		cqIndex = 1;
 		thrusterIndex = 2;
 	}
@@ -55,6 +55,30 @@ public class PartsList {
 		}
 		for (i = 0; i < thrusterIndex; i++) {
 			total += thrusterList[i].getMass();
+		}
+		return total;
+	}
+	
+	public int calcPrice() {
+		//TODO: find out what's wrong with calcPrice
+		int total = 0, i;
+		for (i = 0; i < cargoBayIndex; i++) {
+			total += cbList[i].getPrice();
+		}
+		for (i = 0; i < hullIndex; i++) {
+			total += hullList[i].getPrice();
+		}
+		for (i = 0; i < reactorIndex; i++) {
+			total += reactorList[i].getPrice();
+		}
+		for (i = 0; i < shieldIndex; i++) {
+			total += shieldList[i].getPrice();
+		}
+		for (i = 0; i < cqIndex; i++) {
+			total += cqList[i].getPrice();
+		}
+		for (i = 0; i < thrusterIndex; i++) {
+			total += thrusterList[i].getPrice();
 		}
 		return total;
 	}

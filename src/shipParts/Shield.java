@@ -2,14 +2,16 @@ package shipParts;
 import java.util.Random;
 
 public class Shield extends ShipPart{
-	/*shields will have a low mass, high cost and high power usage.
+	/*shields will have a low mass, very high cost and high power usage.
 	 *the function of shields is to provide an extra defense layer 
 	 *(power usage can be increased to recharge shield batteries)
 	 */
 	private int shield;
 	//these values are parameters to help balancing
+	private int pUseMin = 300, pUseMax = 1200;
 	private final int shieldMin = 50, shieldMax = 500;
 	private final int massMin = 10, massMax = 100;
+	//TODO: recharge rate or efficiency on shields (maybe)
 	
 	public Shield() {
 		this.rollStats();
@@ -20,12 +22,13 @@ public class Shield extends ShipPart{
 		Random rand = new Random();
 		this.setShield(rand.nextInt(shieldMax - shieldMin) + shieldMin);
 		this.setMass(rand.nextInt(massMax - massMin) + massMin);
+		this.setPowerUse(rand.nextInt(pUseMax - pUseMin) + pUseMin);
 		this.calculatePrice();
 	}
 	
-	public int calculatePrice() {
-		//TODO: calculate a price
-		return this.getPrice();
+	public void calculatePrice() {
+		//shields are expensive as fuck. this is intentional
+		setPrice( 4 * ( (shield * 10 ) + (this.getPowerUse() / 2) )  );
 	}
 	
 	public int getShield() {

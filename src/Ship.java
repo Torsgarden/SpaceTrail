@@ -28,6 +28,7 @@ public class Ship {
 		cargoCap = pL.calcCargoCap();
 		thrust = pL.calcThrust();
 		speed = calcSpeed();
+		price = pL.calcPrice();
 	}
 	
 	//test class: prints all ship specs to the console
@@ -43,6 +44,7 @@ public class Ship {
 		System.out.println("Net power generation: " + powerOut);
 		System.out.println("Net power usage: " + powerUse);
 		System.out.println("Shield power: " + shieldMax);
+		System.out.println("Price: " + price);
 	}
 	
 	public String getSpecsString() {

@@ -7,6 +7,7 @@ public class CargoBay extends ShipPart {
 	private int capacity;
 	//these values are parameters only; they shouldn't have getters or setters
 	private int capacityMin = 100, capacityMax = 1000;
+	private int pUseMin = 10, pUseMax = 100;
 	private int massMin = 10, massMax = 100;
 	
 	public CargoBay() {
@@ -39,15 +40,15 @@ public class CargoBay extends ShipPart {
 		//generates random values for non-preset parts
 		Random rand = new Random();
 		this.setCapacity(rand.nextInt(capacityMax - capacityMin) + capacityMin);
-		this.setMass(rand.nextInt(massMax - massMin) + massMin); 
+		this.setMass(rand.nextInt(massMax - massMin) + massMin);
+		this.setPowerUse(rand.nextInt(pUseMax - pUseMin) + pUseMin);
 		this.calculatePrice();
 	}
 	
-	public int calculatePrice() {
-		//TODO: calculate a price
-		return this.getPrice();
+	public void calculatePrice() {
+		setPrice( capacity * 6 );
 	}
-
+	
 	public int getCapacity() {
 		return capacity;
 	}

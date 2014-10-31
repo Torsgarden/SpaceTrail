@@ -6,7 +6,8 @@ public class Thruster extends ShipPart{
 	//the function of thrusters is to move the ship
 	private int thrust;
 	//these values are parameters only; they shouldn't have getters or setters
-	private int thrustMin = 50, thrustMax = 1000;
+	private int pUseMin = 100, pUseMax = 450;
+	private int thrustMin = 300, thrustMax = 1300;
 	private int massMin = 200, massMax = 400;
 	
 	public Thruster() {
@@ -18,12 +19,12 @@ public class Thruster extends ShipPart{
 		Random rand = new Random();
 		this.setArmor(rand.nextInt(thrustMax - thrustMin) + thrustMin);
 		this.setMass(rand.nextInt(massMax - massMin) + massMin);
+		this.setPowerUse(rand.nextInt(pUseMax - pUseMin) + pUseMin);
 		this.calculatePrice();
 	}
 	
-	public int calculatePrice() {
-		//TODO: calculate a price
-		return this.getPrice();
+	public void calculatePrice() {
+		setPrice( (thrust * 9) - (getPowerUse() + getMass())/2 );
 	}
 	
 	public int getThrust() {
