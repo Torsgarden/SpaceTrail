@@ -112,5 +112,105 @@ public class DisplayGraphics implements ScreenInterface{
 		}
 	}
 	
+	public static void printMovingSquare(Screen screen) {
+		screen.makeFiledSquare(6, 6, 18, 10, "*");
+		while(true) {
+			try {
+				for(int i = 1; i <= 10; i++) {
+					screen.setColumnOfElements(17+i, 6, 11, "*");
+					screen.setColumnOfElements(5+i, 6, 11, " ");
+					Thread.sleep(100);
+				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	// this method creates a character that is 5 by 5
+	// screen is the screen printed too
+	// letter is the letter to be printed
+	// ch is the character to be printed
+	// x is the x cordiante of the top left corner
+	// y is the y cordiante of the top left corner
+	public static void printCharacters(Screen screen, char letter, String ch, int x, int y) {
+		switch(letter) {
+			case 's':
+				screen.setRowOfElements(y, x, x + 5, ch);
+				screen.setColumnOfElements(x, y + 1, y + 3, ch);
+				screen.setRowOfElements(y + 2, x, x + 5, ch);
+				screen.setColumnOfElements(x + 4, y + 3, y + 5, ch);
+				screen.setRowOfElements(y + 4, x, x + 5, ch);
+				break;
+			case 'p':
+				screen.setColumnOfElements(x, y, y + 5, ch);
+				screen.setRowOfElements(y, x, x + 5, ch);
+				screen.setColumnOfElements(x + 4, y, y + 3, ch);
+				screen.setRowOfElements(y + 2, x, x + 5, ch);
+				break;
+			case 'a':
+				screen.setElementAt(y, x + 2, ch);
+				screen.setElementAt(y + 1, x + 1, ch);
+				screen.setElementAt(y + 1, x + 3, ch);
+				screen.setColumnOfElements(x, y + 2, y + 5, ch);
+				screen.setColumnOfElements(x + 4, y + 2, y + 5, ch);
+				screen.setRowOfElements(y + 2, x + 1, x + 4, ch);
+				break;
+			case 'c':
+				screen.setRowOfElements(y, x, x + 5, ch);
+				screen.setColumnOfElements(x, y, y + 5, ch);
+				screen.setRowOfElements(y + 4, x, x + 5, ch);
+				break;
+			case 'e':
+				screen.setRowOfElements(y, x, x + 5, ch);
+				screen.setColumnOfElements(x, y, y + 5, ch);
+				screen.setRowOfElements(y + 2, x, x + 5, ch);
+				screen.setRowOfElements(y + 4, x, x + 5, ch);
+				break;
+			case 't':
+				screen.setRowOfElements(y, x, x + 5, ch);
+				screen.setColumnOfElements(x + 2, y, y + 5, ch);
+				break;
+			case 'r':
+				screen.setRowOfElements(y, x, x + 5, ch);
+				screen.setColumnOfElements(x, y, y + 5, ch);
+				screen.setRowOfElements(y + 2, x, x + 5, ch);
+				screen.setElementAt(y + 1, x + 4, ch);
+				screen.setElementAt(y + 3, x + 3, ch);
+				screen.setElementAt(y + 4, x + 4, ch);
+				break;
+			case 'l':
+				screen.setColumnOfElements(x, y, y + 4, ch);
+				screen.setRowOfElements(y + 4, x, x + 5, ch);
+				break;
+			case 'i':
+				screen.setRowOfElements(y, x, x + 5, ch);
+				screen.setColumnOfElements(x + 2, y + 1, y + 4, ch);
+				screen.setRowOfElements(y + 4, x, x + 5, ch);
+				break;
+			default:
+				break;
+		}
+	}
+	
+	// this method creates the space trail logo
+	// screen is the screen printed too
+	// ch is the characters that will be printed
+	// x is the x cordiante of the top left corner
+	// y is the y cordiante of the top left corner
+	public static void printLogo(Screen screen, String ch, int x, int y) {
+		printCharacters(screen, 's', ch, x, y);
+		printCharacters(screen, 'p', ch, x + 6, y);
+		printCharacters(screen, 'a', ch, x + 12, y);
+		printCharacters(screen, 'c', ch, x + 18, y);
+		printCharacters(screen, 'e', ch, x + 24, y);
+		
+		printCharacters(screen, 't', ch, x, y + 6);
+		printCharacters(screen, 'r', ch, x + 6, y + 6);
+		printCharacters(screen, 'a', ch, x + 12, y + 6);
+		printCharacters(screen, 'i', ch, x + 18, y + 6);
+		printCharacters(screen, 'l', ch, x + 24, y + 6);
+	}
+	
 	
 }
