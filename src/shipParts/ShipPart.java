@@ -1,5 +1,5 @@
 package shipParts;
-import java.util.Random;
+//import java.util.Random;
 
 public abstract class ShipPart {
 	private int mass, powerUse = 5, volume, price = 100;

@@ -13,10 +13,32 @@ public class CargoBay extends ShipPart {
 		this.rollStats();
 	}
 	
+	public CargoBay(int con) {
+		//example method for preset parts
+		//TODO: make this not an example method
+		switch(con) {
+			case 0: 
+				this.rollStats();
+				break;
+			case 1:
+				capacity = 150;
+				setMass(20);
+			case 2:
+				capacity = 300;
+				setMass(40);
+			case 3:
+				capacity = 450;
+				setMass(60);
+			default:
+				capacity = 10;
+				setMass(1);
+		}
+	}
+	
 	public void rollStats() {
 		//generates random values for non-preset parts
 		Random rand = new Random();
-		this.setPowerOutput(rand.nextInt(capacityMax - capacityMin) + capacityMin);
+		this.setCapacity(rand.nextInt(capacityMax - capacityMin) + capacityMin);
 		this.setMass(rand.nextInt(massMax - massMin) + massMin); 
 		this.calculatePrice();
 	}
@@ -30,7 +52,7 @@ public class CargoBay extends ShipPart {
 		return capacity;
 	}
 
-	public void setPowerOutput(int newCapacity) {
+	public void setCapacity(int newCapacity) {
 		this.capacity = newCapacity;
 	}
 }
