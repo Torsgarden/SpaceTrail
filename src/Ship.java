@@ -4,7 +4,7 @@ import shipParts.*;
 public class Ship {
 	private String name = NameBank.randomizeShipName();
 	private int powerOut = 0, powerUse = 0, mass = 0, thrust = 0, price = 0, crewCap = 0, cargoCap = 0;
-	private Double speed;
+	private int speed;
 	private int health = 1, healthMax = 1, shield = 0, shieldMax = 0;
 	
 	//PartsList is like an array list specifically for ship parts
@@ -28,7 +28,7 @@ public class Ship {
 		cargoCap = pL.calcCargoCap();
 		thrust = pL.calcThrust();
 		speed = calcSpeed();
-		price = pL.calcPrice();
+		price = pL.calcPriceTest();
 	}
 	
 	//test class: prints all ship specs to the console
@@ -53,14 +53,14 @@ public class Ship {
 		return output;
 	}
 	
-	public Double calcSpeed() {
+	public int calcSpeed() {
 		Double speedBase, speedMod, speedAdjusted;
 		speedBase = 1.0 *  getThrust() - getMass();
 		speedMod = (1.0 * captain.getLeadership() + navigator.getNavigation())/100;
 		speedAdjusted = speedBase * speedMod;
 		if (speedAdjusted < 0.0)
-			return 0.0;
-		return speedAdjusted;
+			return 0;
+		return speedAdjusted.intValue();
 	}
 	
 	//add and remove methods for ship parts
@@ -147,6 +147,10 @@ public class Ship {
 	}
 	public void setPrice(int newPrice) {
 		price = newPrice;
+	}
+	
+	public int getSpeed() {
+		return speed;
 	}
 
 }

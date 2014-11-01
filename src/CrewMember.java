@@ -298,7 +298,10 @@ public class CrewMember {
 			return "Polemian";
 		} else if ( this.getRace() == Race.TRIGGLE ) {
 			return "Triggle";
-		} else return "Null Race";
+		} else if ( this.getRace() == Race.CHEZZERIN ) {
+			return "Chezzerin";
+		} else
+			return "Null Race";
 	}
 	
 	public String showInfo() {

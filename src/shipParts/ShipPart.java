@@ -5,32 +5,33 @@ public abstract class ShipPart {
 	private int mass, powerUse = 5, volume, price = 100;
 
 	/*	
-public static Object randomizePart() {
-	Random rand = new Random();
-	//Object newPart = new Object();
+	public static Object randomizePart() {
+		Random rand = new Random();
+		//Object newPart = new Object();
+		
+		//TODO: finish randomizePart method
+		switch(rand.nextInt(3)) {
+			case 1:
+				//return engines
+				return new Engine();
+				break;
+			case 2:
+				//return thrusters
+				break;
+			default:
+				//you should never reach this code
+				break;
+		}
+		return newPart;
+	}
+	*/
 	
-	//TODO: finish randomizePart method
-	switch(rand.nextInt(3)) {
-		case 1:
-			//return engines
-			return new Engine();
-			break;
-		case 2:
-			//return thrusters
-			break;
-		default:
-			//you should never reach this code
-			break;
-	}
-	return newPart;
-	}
-*/
 	public int getMass() {
 		return mass;
 	}
 	
 	public void setMass(int newMass) {
-		this.mass = newMass;
+		mass = newMass;
 	}
 	
 	public int getPowerUse() {
@@ -38,7 +39,7 @@ public static Object randomizePart() {
 	}
 	
 	public void setPowerUse(int newPowerUse) {
-		this.powerUse = newPowerUse;
+		powerUse = newPowerUse;
 	}
 	
 	public int getVolume() {
@@ -46,7 +47,7 @@ public static Object randomizePart() {
 	}
 	
 	public void setVolume(int newVolume) {
-		this.volume = newVolume;
+		volume = newVolume;
 	}
 	
 	public int getPrice() {
@@ -54,7 +55,7 @@ public static Object randomizePart() {
 	}
 	
 	public void setPrice(int newPrice) {
-		this.price = newPrice;
+		price = newPrice;
 	}
 	
 }

@@ -18,6 +18,14 @@ public class PartsList {
 	private Thruster[] thrusterList = new Thruster[10];
 	private int cargoBayIndex = 0, hullIndex = 0, reactorIndex = 0, shieldIndex = 0, cqIndex = 0, thrusterIndex = 0;
 	
+	//parts for calculations in other methods
+	CargoBay newCB = new CargoBay();
+	Hull newHull = new Hull();
+	Reactor newReactor = new Reactor();
+	Shield newShield = new Shield();
+	CrewQuarters newCQ = new CrewQuarters();
+	Thruster newThruster = new Thruster();
+	
 	public PartsList() {
 		cbList[0] = new CargoBay();
 		hullList[0] = new Hull();
@@ -32,11 +40,15 @@ public class PartsList {
 		//shieldIndex = 1;
 		cqIndex = 1;
 		thrusterIndex = 2;
+		
+		//parts for calculations in other methods
+		
 	}
 	
 	//calculation codes
 	
 	public int calcMass() {
+		//TODO: fix calcMass
 		int total = 0, i;
 		for (i = 0; i < cargoBayIndex; i++) {
 			total += cbList[i].getMass();
@@ -79,6 +91,37 @@ public class PartsList {
 		}
 		for (i = 0; i < thrusterIndex; i++) {
 			total += thrusterList[i].getPrice();
+		}
+		return total;
+	}
+	
+	//TEST METHOD: SEE IF PRICE CHECK FUCKING WORKS THIS WAY
+	public int calcPriceTest() {
+		
+		int total = 0, i;
+		for (i = 0; i < cargoBayIndex; i++) {
+			newCB = cbList[i];
+			total += newCB.getPrice();
+		}
+		for (i = 0; i < hullIndex; i++) {
+			newHull = hullList[i];
+			total += newHull.getPrice();
+		}
+		for (i = 0; i < reactorIndex; i++) {
+			newReactor = reactorList[i];
+			total += newReactor.getPrice();
+		}
+		for (i = 0; i < shieldIndex; i++) {
+			newShield = shieldList[i];
+			total += newShield.getPrice();
+		}
+		for (i = 0; i < cqIndex; i++) {
+			newCQ = cqList[i];
+			total += newCQ.getPrice();
+		}
+		for (i = 0; i < thrusterIndex; i++) {
+			newThruster = thrusterList[i];
+			total += newThruster.getPrice();
 		}
 		return total;
 	}
