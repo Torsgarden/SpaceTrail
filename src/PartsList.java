@@ -220,7 +220,7 @@ public class PartsList {
 	}
 	
 	public void addHull(Hull newHull) {
-		if (hullIndex > 9) {
+		if (hullIndex > (hullList.length - 1) ) {
 			System.out.println("ERROR: cannot add more hulls.");
 			return;
 		}
@@ -246,7 +246,7 @@ public class PartsList {
 	}
 	
 	public void addReactor(Reactor newReactor) {
-		if (reactorIndex > 9) {
+		if (reactorIndex > ( reactorList.length - 1) ) {
 			System.out.println("ERROR: YOU CAN'T ADD ANY MORE REACTORS");
 			return;
 		}
