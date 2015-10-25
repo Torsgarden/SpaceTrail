@@ -29,6 +29,11 @@ public class Main {
 			}	
 		}
 		
+		//myScreen.makeFiledSquare(6, 6, 18, 10, "*");
+		//myScreen.setColumnOfElements(19, 6, 11, "*");
+		//myScreen.setColumnOfElements(4, 6, 11, "*");
+		//DisplayGraphics.printRandomElements(myScreen, 10, "*");
+		
 		//myScreen.makeSquare(0, 0, 39, 19, "*");
 		//myScreen.makeSquare(3, 3, 36, 16, "*");
 		//myScreen.makeSquare(6, 6, 33, 13, "*");
