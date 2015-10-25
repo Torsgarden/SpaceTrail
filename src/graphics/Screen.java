@@ -115,12 +115,12 @@ public class Screen implements ScreenInterface {
 		}
 	}
 	
-	/*
+	
 	public void makeDiagonalLine(int x1, int y1, int x2, int y2, String ch) {
-		for(int line = y1; line <= y2; line++) {
-			setElementAt(line2, line, ch);
+		for(int line = y1; line < y2; line++) {
+			setElementAt(line + x1, line + x2, ch);
 		}
 	}
-	*/
+	
 	
 }
