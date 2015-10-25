@@ -11,7 +11,24 @@ public class Main {
 		// that is then printed into the TextWindow
 		Screen myScreen = new Screen();
 		//DisplayGraphics.printMovingLine(myScreen);
-		DisplayGraphics.printRandomElements(myScreen, 10, "*");
+		//DisplayGraphics.printRandomElements(myScreen, 10, "*");
+		
+		int i, j = 8;
+		while(true) {
+			try {
+				for(i = 0 ; i < 36; i++) {
+					DisplayGraphics.printBats(myScreen, i, j, "*");
+					Thread.sleep(200);
+					DisplayGraphics.printBats(myScreen, i, j, " ");
+					DisplayGraphics.printBatsReverse(myScreen, i, j, "*");
+					Thread.sleep(200);
+					DisplayGraphics.printBatsReverse(myScreen, i, j, " ");
+				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}	
+		}
+		
 		//myScreen.makeSquare(0, 0, 39, 19, "*");
 		//myScreen.makeSquare(3, 3, 36, 16, "*");
 		//myScreen.makeSquare(6, 6, 33, 13, "*");

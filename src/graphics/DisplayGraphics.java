@@ -212,5 +212,20 @@ public class DisplayGraphics implements ScreenInterface{
 		printCharacters(screen, 'l', ch, x + 24, y + 6);
 	}
 	
+	public static void printBats(Screen screen, int x, int y, String ch) {
+		screen.setElementAt(y, x + 2, ch);
+		screen.setElementAt(y + 1, x + 1, ch);
+		screen.setElementAt(y + 1, x + 3, ch);
+		screen.setElementAt(y + 2, x, ch);
+		screen.setElementAt(y + 2, x + 4, ch);
+	}
+	
+	public static void printBatsReverse(Screen screen, int x, int y, String ch) {
+		screen.setElementAt(y, x, ch);;
+		screen.setElementAt(y + 2, x + 2, ch);
+		screen.setElementAt(y + 1, x + 1, ch);
+		screen.setElementAt(y + 1, x + 3, ch);
+		screen.setElementAt(y, x + 4, ch);
+	}
 	
 }
